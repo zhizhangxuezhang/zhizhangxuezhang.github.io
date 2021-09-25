@@ -233,6 +233,187 @@
             
 
   
+    <article id="post-opea-excel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/09/26/opea-excel/" target="_blank">Python操作Excel数据封装函数</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/09/26/opea-excel/" class="archive-article-date">
+        <time datetime="2021-09-25T17:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>@<a href="%E3%80%90%E5%B9%B2%E8%B4%A7%E3%80%91%E5%BB%BA%E8%AE%AE%E6%94%B6%E8%97%8F%EF%BC%81%EF%BC%81%E5%85%A8%E7%BD%91%E6%9C%80%E5%AE%8C%E6%95%B4%E7%9A%84Python%E6%93%8D%E4%BD%9CExcel%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85%E5%87%BD%E6%95%B0">TOC</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20210529153420204.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhcGVySmFjaw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h1 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="1. 写在前面"></a>1. 写在前面</h1><p>对比其它编程语言，我们都知道Python最大的优势是代码简单，有丰富的第三方开源库供开发者使用。伴随着近几年数据分析的热度，Python也成为最受欢迎的编程语言之一。而对于数据的读取和存储，对于普通人来讲，除了数据库之外，最常见的就是微软的Excel。</p>
+<h1 id="2-前期准备"><a href="#2-前期准备" class="headerlink" title="2. 前期准备"></a>2. 前期准备</h1><h2 id="2-1-初识Excel"><a href="#2-1-初识Excel" class="headerlink" title="2.1. 初识Excel"></a>2.1. 初识Excel</h2><blockquote>
+<p>Microsoft Excel是Microsoft为使用Windows和Apple Macintosh操作系统的电脑编写的一款电子表格软件。</p>
+</blockquote>
+<h2 id="2-2-格式区别"><a href="#2-2-格式区别" class="headerlink" title="2.2. 格式区别"></a>2.2. 格式区别</h2><p>Excel中有xls和xlsx两种格式，它们之间的区别是：</p>
+<ul>
+<li>文件格式不同。xls是一个特有的二进制格式，其核心结构是复合文档类型的结构，而xlsx的核心结构是XML类型的结构，采用的是基于 XML的压缩方式，使其占用的空间更小。xlsx 中最后一个 x 的意义就在于此。</li>
+<li>版本不同。xls是Excel2003及以前版本生成的文件格式，而xlsx是Excel2007及以后版本生成的文件格式。</li>
+<li>兼容性不同。xlsx格式是向下兼容的，可兼容xls格式。<h2 id="2-3-库的使用"><a href="#2-3-库的使用" class="headerlink" title="2.3. 库的使用"></a>2.3. 库的使用</h2></li>
+</ul>
+<p>当我们要操作xls格式文件时，需要使用到xlrd和xlwt这两个第三方库；当我们要操作xlsx格式文件时，则需要使用到openpyxl第三方库。<br>|  模块|来源|读|写|支持格式|<br>|–|–|–|–|–|<br>|xlrd   |第三方库|√|×|xls|<br>|xlwt|第三方库|×|√|xls|<br>|openpyxl|第三方库|√|√|xlsx|</p>
+<h2 id="2-4-整体思路"><a href="#2-4-整体思路" class="headerlink" title="2.4. 整体思路"></a>2.4. 整体思路</h2><p>当使用以上几个模块的时候，从理论上我们就可以完全操作不同格式的Excel的读和写，很多人就疑惑，那这篇文章的作用是什么？我们直接学习对应的这三个模块不就好了吗？答案就是：虽然这几个库已经把Excel的文件、表、行、列的概念完全转换为Python中的对象，但每次操作都需要遍历每一个单元格，甚至很多时候我们要花费大量的时间在思考循环单元格的边界上，这本身就是在重复造轮子，因此我花了半天时间整理了以下六个函数。</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>作用</th>
+<th>参数</th>
+<th>参数注释</th>
+<th>返回值</th>
+<th>返回值注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>read_xls_excel</td>
+<td>读取xls格式Excel数据</td>
+<td>url,index</td>
+<td>①文件路径，②工作表序号（第几个工作表，传入参数从1开始数）</td>
+<td>data</td>
+<td>表格中的数据</td>
+</tr>
+<tr>
+<td>write_xls_excel</td>
+<td>写入xls格式Excel数据</td>
+<td>url,sheet_name,two_dimensional_data</td>
+<td>①文件路径，②表名，③将要写入表格的数据（二维列表）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>write_xls_excel_add</td>
+<td>追加写入xls格式Excel数据</td>
+<td>url, two_dimensional_data, index</td>
+<td>①文件路径，②将要写入表格的数据（二维列表），③指定要追加的表的序号（第几个工作表，传入参数从1开始数）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>read_xlsx_excel</td>
+<td>读取xlsx格式Excel数据</td>
+<td>url,index</td>
+<td>①文件路径，②工作表序号（第几个工作表，传入参数从1开始数）</td>
+<td>data</td>
+<td>表格中的数据</td>
+</tr>
+<tr>
+<td>write_xlsx_excel</td>
+<td>写入xlsx格式Excel数据</td>
+<td>url, sheet_name, two_dimensional_data</td>
+<td>①文件路径，②表名，③将要写入表格的数据（二维列表）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>write_xlsx_excel_add</td>
+<td>追加写入xlsx格式Excel数据</td>
+<td>url, sheet_name, two_dimensional_data</td>
+<td>①文件路径，②表名，③将要写入表格的数据（二维列表）</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="3-代码展示"><a href="#3-代码展示" class="headerlink" title="3. 代码展示"></a>3. 代码展示</h1><h2 id="3-1-xls格式"><a href="#3-1-xls格式" class="headerlink" title="3.1. xls格式"></a>3.1. xls格式</h2><h3 id="3-1-1-读取xls格式文件"><a href="#3-1-1-读取xls格式文件" class="headerlink" title="3.1.1. 读取xls格式文件"></a>3.1.1. 读取xls格式文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">读取xls格式文件</span></span><br><span class="line"><span class="string">参数：</span></span><br><span class="line"><span class="string">    url:文件路径</span></span><br><span class="line"><span class="string">    index：工作表序号（第几个工作表，传入参数从1开始数）</span></span><br><span class="line"><span class="string">返回：</span></span><br><span class="line"><span class="string">    data:表格中的数据</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_xls_excel</span>(<span class="params">url,index</span>):</span></span><br><span class="line">    <span class="comment"># 打开指定的工作簿</span></span><br><span class="line">    workbook = xlrd.open_workbook(url)</span><br><span class="line">    <span class="comment"># 获取工作簿中的所有表格</span></span><br><span class="line">    sheets = workbook.sheet_names()</span><br><span class="line">    <span class="comment"># 获取工作簿中所有表格中的的第 index 个表格</span></span><br><span class="line">    worksheet = workbook.sheet_by_name(sheets[index-<span class="number">1</span>])</span><br><span class="line">    <span class="comment"># 定义列表存储表格数据</span></span><br><span class="line">    data = []</span><br><span class="line">    <span class="comment"># 遍历每一行数据</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, worksheet.nrows):</span><br><span class="line">        <span class="comment"># 定义表格存储每一行数据</span></span><br><span class="line">        da = []</span><br><span class="line">        <span class="comment"># 遍历每一列数据</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, worksheet.ncols):</span><br><span class="line">            <span class="comment"># 将行数据存储到da列表</span></span><br><span class="line">            da.append(worksheet.cell_value(i, j))</span><br><span class="line">        <span class="comment"># 存储每一行数据</span></span><br><span class="line">        data.append(da)</span><br><span class="line">    <span class="comment"># 返回数据</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-2-写入xls格式文件"><a href="#3-1-2-写入xls格式文件" class="headerlink" title="3.1.2. 写入xls格式文件"></a>3.1.2. 写入xls格式文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">写入xls格式文件</span></span><br><span class="line"><span class="string">参数：</span></span><br><span class="line"><span class="string">    url:文件路径</span></span><br><span class="line"><span class="string">    sheet_name:表名</span></span><br><span class="line"><span class="string">    two_dimensional_data：将要写入表格的数据（二维列表）</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_xls_excel</span>(<span class="params">url,sheet_name,two_dimensional_data</span>):</span></span><br><span class="line">    <span class="comment"># 创建工作簿对象</span></span><br><span class="line">    workbook = xlwt.Workbook()</span><br><span class="line">    <span class="comment"># 创建工作表对象</span></span><br><span class="line">    sheet = workbook.add_sheet(sheet_name)</span><br><span class="line">    <span class="comment"># 遍历每一行数据</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(two_dimensional_data)):</span><br><span class="line">        <span class="comment"># 遍历每一列数据</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(two_dimensional_data[i])):</span><br><span class="line">            <span class="comment"># 写入数据</span></span><br><span class="line">            sheet.write(i,j,two_dimensional_data[i][j])</span><br><span class="line">    <span class="comment"># 保存</span></span><br><span class="line">    workbook.save(url)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;写入成功&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-3-追加写入xls格式文件"><a href="#3-1-3-追加写入xls格式文件" class="headerlink" title="3.1.3. 追加写入xls格式文件"></a>3.1.3. 追加写入xls格式文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">追加写入xls格式文件</span></span><br><span class="line"><span class="string">参数：</span></span><br><span class="line"><span class="string">    url:文件路径</span></span><br><span class="line"><span class="string">    two_dimensional_data：将要写入表格的数据（二维列表）</span></span><br><span class="line"><span class="string">    index：指定要追加的表的序号（第几个工作表，传入参数从1开始数）</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_xls_excel_add</span>(<span class="params">url, two_dimensional_data, index</span>):</span></span><br><span class="line">    <span class="comment"># 打开指定的工作簿</span></span><br><span class="line">    workbook = xlrd.open_workbook(url)</span><br><span class="line">    <span class="comment"># 获取工作簿中的所有表格</span></span><br><span class="line">    sheets = workbook.sheet_names()</span><br><span class="line">    <span class="comment"># 获取指定的表</span></span><br><span class="line">    worksheet = workbook.sheet_by_name(sheets[index-<span class="number">1</span>])</span><br><span class="line">    <span class="comment"># 获取表格中已存在的数据的行数</span></span><br><span class="line">    rows_old = worksheet.nrows</span><br><span class="line">    <span class="comment"># 将xlrd对象拷贝转化为xlwt对象</span></span><br><span class="line">    new_workbook = copy(workbook)</span><br><span class="line">    <span class="comment"># 获取转化后工作簿中的第index个表格</span></span><br><span class="line">    new_worksheet = new_workbook.get_sheet(index-<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 遍历每一行数据</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(two_dimensional_data)):</span><br><span class="line">        <span class="comment"># 遍历每一列数据</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(two_dimensional_data[i])):</span><br><span class="line">            <span class="comment"># 追加写入数据，注意是从i+rows_old行开始写入</span></span><br><span class="line">            new_worksheet.write(i+rows_old, j, two_dimensional_data[i][j])</span><br><span class="line">    <span class="comment"># 保存工作簿</span></span><br><span class="line">    new_workbook.save(url)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;追加写入成功&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-xlsx格式"><a href="#3-2-xlsx格式" class="headerlink" title="3.2. xlsx格式"></a>3.2. xlsx格式</h2><h3 id="3-2-1-读取xlsx格式文件"><a href="#3-2-1-读取xlsx格式文件" class="headerlink" title="3.2.1. 读取xlsx格式文件"></a>3.2.1. 读取xlsx格式文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">读取xlsx格式文件</span></span><br><span class="line"><span class="string">参数：</span></span><br><span class="line"><span class="string">    url:文件路径</span></span><br><span class="line"><span class="string">    sheet_name:表名</span></span><br><span class="line"><span class="string">返回：</span></span><br><span class="line"><span class="string">    data:表格中的数据</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_xlsx_excel</span>(<span class="params">url, sheet_name</span>):</span></span><br><span class="line">    <span class="comment"># 使用openpyxl加载指定路径的Excel文件并得到对应的workbook对象</span></span><br><span class="line">    workbook = openpyxl.load_workbook(url)</span><br><span class="line">    <span class="comment"># 根据指定表名获取表格并得到对应的sheet对象</span></span><br><span class="line">    sheet = workbook[sheet_name]</span><br><span class="line">    <span class="comment"># 定义列表存储表格数据</span></span><br><span class="line">    data = []</span><br><span class="line">    <span class="comment"># 遍历表格的每一行</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> sheet.rows:</span><br><span class="line">        <span class="comment"># 定义表格存储每一行数据</span></span><br><span class="line">        da = []</span><br><span class="line">        <span class="comment"># 从每一行中遍历每一个单元格</span></span><br><span class="line">        <span class="keyword">for</span> cell <span class="keyword">in</span> row:</span><br><span class="line">            <span class="comment"># 将行数据存储到da列表</span></span><br><span class="line">            da.append(cell.value)</span><br><span class="line">        <span class="comment"># 存储每一行数据</span></span><br><span class="line">        data.append(da)</span><br><span class="line">    <span class="comment"># 返回数据</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-2-写入xlsx格式文件"><a href="#3-2-2-写入xlsx格式文件" class="headerlink" title="3.2.2. 写入xlsx格式文件"></a>3.2.2. 写入xlsx格式文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">写入xlsx格式文件</span></span><br><span class="line"><span class="string">参数：</span></span><br><span class="line"><span class="string">    url:文件路径</span></span><br><span class="line"><span class="string">    sheet_name:表名</span></span><br><span class="line"><span class="string">    two_dimensional_data：将要写入表格的数据（二维列表）</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_xlsx_excel</span>(<span class="params">url, sheet_name, two_dimensional_data</span>):</span></span><br><span class="line">    <span class="comment"># 创建工作簿对象</span></span><br><span class="line">    workbook = openpyxl.Workbook()</span><br><span class="line">    <span class="comment"># 创建工作表对象</span></span><br><span class="line">    sheet = workbook.active</span><br><span class="line">    <span class="comment"># 设置该工作表的名字</span></span><br><span class="line">    sheet.title = sheet_name</span><br><span class="line">    <span class="comment"># 遍历表格的每一行</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(two_dimensional_data)):</span><br><span class="line">        <span class="comment"># 遍历表格的每一列</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(two_dimensional_data[i])):</span><br><span class="line">            <span class="comment"># 写入数据（注意openpyxl的行和列是从1开始的，和我们平时的认知是一样的）</span></span><br><span class="line">            sheet.cell(row=i + <span class="number">1</span>, column=j + <span class="number">1</span>, value=<span class="built_in">str</span>(two_dimensional_data[i][j]))</span><br><span class="line">    <span class="comment"># 保存到指定位置</span></span><br><span class="line">    workbook.save(url)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;写入成功&quot;</span>)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-3-追加写入xlsx格式文件"><a href="#3-2-3-追加写入xlsx格式文件" class="headerlink" title="3.2.3. 追加写入xlsx格式文件"></a>3.2.3. 追加写入xlsx格式文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">追加写入xlsx格式文件</span></span><br><span class="line"><span class="string">参数：</span></span><br><span class="line"><span class="string">    url:文件路径</span></span><br><span class="line"><span class="string">    sheet_name:表名</span></span><br><span class="line"><span class="string">    two_dimensional_data：将要写入表格的数据（二维列表）</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_xlsx_excel_add</span>(<span class="params">url, sheet_name, two_dimensional_data</span>):</span></span><br><span class="line">    <span class="comment"># 使用openpyxl加载指定路径的Excel文件并得到对应的workbook对象</span></span><br><span class="line">    workbook = openpyxl.load_workbook(url)</span><br><span class="line">    <span class="comment"># 根据指定表名获取表格并得到对应的sheet对象</span></span><br><span class="line">    sheet = workbook[sheet_name]</span><br><span class="line">    <span class="keyword">for</span> tdd <span class="keyword">in</span> two_dimensional_data:</span><br><span class="line">        sheet.append(tdd)</span><br><span class="line">    <span class="comment"># 保存到指定位置</span></span><br><span class="line">    workbook.save(url)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;追加写入成功&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-结果测试"><a href="#4-结果测试" class="headerlink" title="4. 结果测试"></a>4. 结果测试</h1><h2 id="4-1-读取测试"><a href="#4-1-读取测试" class="headerlink" title="4.1. 读取测试"></a>4.1. 读取测试</h2><p>先准备两个Excel文件，如图所示<br><img src="https://img-blog.csdnimg.cn/20210529141550113.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhcGVySmFjaw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其内容如下：<br><img src="https://img-blog.csdnimg.cn/202105291417479.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhcGVySmFjaw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210529141856539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhcGVySmFjaw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>测试代码：<br><img src="https://img-blog.csdnimg.cn/20210529141954187.png" alt="在这里插入图片描述"><br>输出结果：<br><img src="https://img-blog.csdnimg.cn/20210529142028582.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhcGVySmFjaw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>结论：表明读取并没有问题！！！接下来测试写入</p>
+<h2 id="4-2-写入测试"><a href="#4-2-写入测试" class="headerlink" title="4.2. 写入测试"></a>4.2. 写入测试</h2><p>测试代码：<br><img src="https://img-blog.csdnimg.cn/20210529142129819.png" alt="在这里插入图片描述"><br>结果输出：<br><img src="https://img-blog.csdnimg.cn/20210529142241395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhcGVySmFjaw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>看到数据被覆盖了！！！接下来在上面修改后的数据的基础上测试追加写入</p>
+<h2 id="4-3-追加写入测试"><a href="#4-3-追加写入测试" class="headerlink" title="4.3. 追加写入测试"></a>4.3. 追加写入测试</h2><p>测试代码：<br><img src="https://img-blog.csdnimg.cn/20210529142350627.png" alt="在这里插入图片描述"><br>结果输出：<br><img src="https://img-blog.csdnimg.cn/20210529142443409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BhcGVySmFjaw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>追加也没有问题！！</p>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h1><p>我一直认为数据分析就应该以数据为主，而不应该把大量的代码花费在设计Excel表格的样式上，这样多少就有点主客颠倒的意思了。总之，希望这篇文章对正在学习Python的你有一定的帮助，如果对你有帮助的话，不妨点个赞和收藏吧！如果有什么意见和建议也欢迎在评论区留言！</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Excel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/09/26/opea-excel/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -750,6 +931,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">产品</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
             
             <div class="clearfix"></div>
