@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhizhangxuezhang.github.io">
-  <title>剑指Offer_读书笔记_1_基础知识 | Jack·Kwok的个人网站</title>
+  <title>剑指Offer_读书笔记_2_基础知识 | Jack·Kwok的个人网站</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="1. 编程语言编写算法的时候总是要基于一门语言实现的。因此技术面试的时候都会涉及到至少一门语言。根据你面试的岗位和你的特长可以选择一种编程语言实现算法题。流行的编程语言很多，可以使用做底层开发的C，C++，基于Windows的C#，跨平台开发的Java，专门开发iPad、iPhone的Objective-C，脚本语言Perl、Python等。使用哪种语言也要看公司面试时的要求。 2. 数据结构2.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer_读书笔记_1_基础知识">
-<meta property="og:url" content="https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_%20ReadingNotes_%201_%20BasicKnowledge/index.html">
+<meta property="og:title" content="剑指Offer_读书笔记_2_基础知识">
+<meta property="og:url" content="https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_%20ReadingNotes_%202_%20BasicKnowledge/index.html">
 <meta property="og:site_name" content="Jack·Kwok的个人网站">
 <meta property="og:description" content="1. 编程语言编写算法的时候总是要基于一门语言实现的。因此技术面试的时候都会涉及到至少一门语言。根据你面试的岗位和你的特长可以选择一种编程语言实现算法题。流行的编程语言很多，可以使用做底层开发的C，C++，基于Windows的C#，跨平台开发的Java，专门开发iPad、iPhone的Objective-C，脚本语言Perl、Python等。使用哪种语言也要看公司面试时的要求。 2. 数据结构2.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-03T15:09:56.000Z">
-<meta property="article:modified_time" content="2021-10-04T13:56:20.059Z">
+<meta property="article:modified_time" content="2021-10-04T14:06:39.687Z">
 <meta property="article:author" content="Jack·Kwok">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="算法">
@@ -236,14 +236,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SwordFingerOffer_ ReadingNotes_ 1_ BasicKnowledge" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SwordFingerOffer_ ReadingNotes_ 2_ BasicKnowledge" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      剑指Offer_读书笔记_1_基础知识
+      剑指Offer_读书笔记_2_基础知识
     </h1>
   
 
@@ -255,7 +255,7 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/10/03/SwordFingerOffer_%20ReadingNotes_%201_%20BasicKnowledge/" class="archive-article-date">
+<a href="/2021/10/03/SwordFingerOffer_%20ReadingNotes_%202_%20BasicKnowledge/" class="archive-article-date">
         <time datetime="2021-10-03T15:09:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-03</time>
 </a>
 
@@ -302,8 +302,7 @@
 <span id="more"></span>
 
 <h2 id="2-2-字符串"><a href="#2-2-字符串" class="headerlink" title="2.2 字符串"></a>2.2 字符串</h2><p>面试题4（替换空格）：请实现一个函数，把字符串中的每个空格替换成”%20”。例如输入“Weare happy.”，则输出“We%20are%20happy.”。</p>
-<p>思路：</p>
-<p>注意这道题的关键点在于替换空格的过程中实际上是将长度为1的空格替换为长度为3的”%20”，因此字符串的长度是会发生改变的。首先，最直接的方法就是直接遍历，当遍历到一个空格的时候，将字符串的长度增加2，然后将空格后面的元素全部往后移动两位，最后添加上”%20”，此时的时间复杂度为O(n2)。</p>
+<p>思路：注意这道题的关键点在于替换空格的过程中实际上是将长度为1的空格替换为长度为3的”%20”，因此字符串的长度是会发生改变的。首先，最直接的方法就是直接遍历，当遍历到一个空格的时候，将字符串的长度增加2，然后将空格后面的元素全部往后移动两位，最后添加上”%20”，此时的时间复杂度为O(n2)。</p>
 <p>因此这里提供时间复杂度为O（n）的解法：先遍历整个字符串，计算出有多少个空格，接着扩大字符串的长度为<code>原来长度+空格个数*2</code>;接着设置两个指针，一个指向新长度的结尾，一个指向旧长度的结尾。当旧长度指针指向的数为非空格时，将该数移动到新长度指针的位置，然后新旧指针往前移动1位；当旧指针指向的数是空格时候，将旧指针往前移动1位，新指针往前移动两位，并添加上%20，直到回到首位时候结束。</p>
 <p>关键点：计算好全部需要移动多少位，一次性移动好；从后往前遍历。</p>
 <p><strong>LeetCode官方实现：</strong></p>
@@ -527,7 +526,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_ ReadingNotes_ 1_ BasicKnowledge/" title="剑指Offer_读书笔记_1_基础知识" target="_blank">https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_ ReadingNotes_ 1_ BasicKnowledge/</a>
+          <a href="https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_ ReadingNotes_ 2_ BasicKnowledge/" title="剑指Offer_读书笔记_2_基础知识" target="_blank">https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_ ReadingNotes_ 2_ BasicKnowledge/</a>
         </li>
         
         <li>
@@ -625,7 +624,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_%20ReadingNotes_%201_%20BasicKnowledge/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://zhizhangxuezhang.github.io/2021/10/03/SwordFingerOffer_%20ReadingNotes_%202_%20BasicKnowledge/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -639,6 +638,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2021/10/04/SwordFingerOffer_%20ReadingNotes_%201_%20InterviewLi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          剑指Offer_读书笔记_1_面试流程
+        
+      </div>
+    </a>
   
   
     <a href="/2021/09/26/jqhj/" id="article-nav-older" class="article-nav-link-wrap">
