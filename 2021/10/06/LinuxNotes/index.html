@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhizhangxuezhang.github.io">
-  <title>Jack·Kwok的个人网站</title>
+  <title>Linux笔记 | Jack·Kwok的个人网站</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="日语50音          &#x2F;*main*&#x2F;              html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockqu">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jack·Kwok的个人网站">
-<meta property="og:url" content="https://zhizhangxuezhang.github.io/assets/demo/border1px.html">
+  <meta name="description" content="Linux基本目录说明Linux的根目录是&#x2F;,在它的下面有很多个目录，其中有大部分是系统相关的目录，我们并不需要去掌握，也千万不要去修改它们。 &#x2F;bin 一些命令都是放在这个目录下的，（不要动它）。 &#x2F;boot Linux启动的一些核心文件（不要动它）。 &#x2F;dev Device（设备）的缩写，例如插入一个u盘，就会在这里显示。（不要动它）。 &#x2F;mnt DVD，VCD (同上，不要动它)。 &#x2F;etc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux笔记">
+<meta property="og:url" content="https://zhizhangxuezhang.github.io/2021/10/06/LinuxNotes/index.html">
 <meta property="og:site_name" content="Jack·Kwok的个人网站">
-<meta property="og:description" content="日语50音          &#x2F;*main*&#x2F;              html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockqu">
+<meta property="og:description" content="Linux基本目录说明Linux的根目录是&#x2F;,在它的下面有很多个目录，其中有大部分是系统相关的目录，我们并不需要去掌握，也千万不要去修改它们。 &#x2F;bin 一些命令都是放在这个目录下的，（不要动它）。 &#x2F;boot Linux启动的一些核心文件（不要动它）。 &#x2F;dev Device（设备）的缩写，例如插入一个u盘，就会在这里显示。（不要动它）。 &#x2F;mnt DVD，VCD (同上，不要动它)。 &#x2F;etc">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-25T12:02:17.663Z">
-<meta property="article:modified_time" content="2021-09-25T12:02:17.663Z">
+<meta property="article:published_time" content="2021-10-06T14:50:49.000Z">
+<meta property="article:modified_time" content="2021-10-06T14:59:17.254Z">
 <meta property="article:author" content="Jack·Kwok">
+<meta property="article:tag" content="技术笔记">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Jack·Kwok的个人网站" type="application/atom+xml">
@@ -230,866 +233,288 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-LinuxNotes" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 class="article-title" itemprop="name">
+      Linux笔记
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/10/06/LinuxNotes/" class="archive-article-date">
+        <time datetime="2021-10-06T14:50:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-06</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.5k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">9分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
-    <title>日语50音</title>
-    <style type="text/css">
-    /*main*/              html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,menu{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:400}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}html,body{-webkit-text-size-adjust:none;-webkit-touch-callout:none;vertical-align:middle;font-size:16px;background:#e6e6e6;position:relative;height:100%;font-family:Tahoma,Arial,"Microsoft Yahei",sans-serif}.clearfix:after{content:" ";display:block;clear:both;visibility:hidden;line-height:0;height:0}input::-webkit-input-placeholder{color:#aaa}a,div{-webkit-tap-highlight-color:rgba(0,0,0,0)}a,a:active,a:hover{color:#0057af;text-decoration:none}header,.header{width:215px;height:58px;background:url(http://3.url.cn/qun/create_iphone/img/sprite.png) no-repeat transparent 0 0;color:#fff;line-height:58px;padding-left:64px;font-size:24px;-webkit-transform:scale(0.82) scale(0.82);-webkit-transform-origin:0 50%}.input-group{overflow:hidden;vertical-align:middle;line-height:16px;background-color:#fff;}#main-section{position:relative;height:100%;min-height:370px;overflow:hidden;}.input-group label{width:100px;padding:10px 0 10px 12px;display:inline-block;border-right:0;float:left;color:gray;-webkit-appearance:none;height:24px;line-height:24px;}.input-group .ui-select{margin-left:115px;padding:10px 24px 10px 15px;position:relative;}.input-group .select-btn{width:100%;height:24px;line-height:24px;color:#aaa;}.input-group .select-btn span.ui-text{text-align:right;display:inline-block;width:100%;white-space:nowrap;overflow:inherit;text-overflow:ellipsis;pointer-events:none;}.input-group .select-btn span.ui-icon{display:inline-block;position:absolute;top:50%;margin:-10px 0 0 -3px;width:18px;height:20px;right:7px;}.input-group .select-btn span.ui-icon .arrow{width:18px;height:18px;position:relative;display:inline-block;float:right;background:transparent;margin-right:-5px;margin-top:1px;}.input-group .select-btn span.ui-icon .arrow div{background:#ccc;position:absolute;width:3px;height:12px;}.input-group .select-btn span.ui-icon .arrow div.arrow1{left:19px;top:12px;-webkit-transform:rotate(-45deg) translate(0,-142%);}.input-group .select-btn span.ui-icon .arrow div.arrow2{left:-5px;top:19px;-webkit-transform:rotate(45deg) translate(0,-142%);}.seg-words{color:#6d6d72;height:20px;font-size:1em;text-shadow:0 1px #fff;padding:3px 0 6px 14px;}
-                
-         /*border-1px 部分*/
-         .border-1px{
-              position: relative;
-         }
-        .border-1px:before, .border-1px:after{
-            border-top: 1px solid #c8c7cc;
-            content: ' ';
-            display: block;
-            width: 100%;
-            position: absolute;
-            left: 0;
-        }
-        .border-1px:before{
-            top: 0;
-            display: none;
-        }
-        .border-1px:after{
-            bottom: 0;
-        }
-         @media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio: 1.5){
-          .border-1px:after,.border-1px:before{
-              -webkit-transform: scaleY(.7);
-              -webkit-transform-origin: 0 0;
-              transform: scaleY(.7);
-            }
-             .border-1px:after{
-              -webkit-transform-origin: left bottom;
-            }
-        }
+    <h1 id="Linux基本目录说明"><a href="#Linux基本目录说明" class="headerlink" title="Linux基本目录说明"></a>Linux基本目录说明</h1><p>Linux的根目录是<code>/</code>,在它的下面有很多个目录，其中有大部分是系统相关的目录，我们并不需要去掌握，也千万不要去修改它们。</p>
+<p>/bin 一些命令都是放在这个目录下的，（不要动它）。</p>
+<p>/boot Linux启动的一些核心文件（不要动它）。</p>
+<p>/dev Device（设备）的缩写，例如插入一个u盘，就会在这里显示。（不要动它）。</p>
+<p>/mnt DVD，VCD (同上，不要动它)。</p>
+<p><strong>/etc</strong> 存放配置文件（Redis、Tomcat等的配置文件）。</p>
+<p><strong>/home</strong>  存放用户的文件。</p>
+<span id="more"></span>
 
-        @media (-webkit-min-device-pixel-ratio:2), (min-device-pixel-ratio: 2){
-          .border-1px:after,.border-1px:before{
-              -webkit-transform: scaleY(.5);
-              transform: scaleY(.5);
-          }
-        }
-    </style>
-</head>
+<p>/lib  基本依赖（不要动它）</p>
+<p>/lost+found  存放突然关机的一些的文件（不要动它）</p>
+<p>/media 识别设备 U盘、光驱等（不要动它）</p>
+<p><strong>/opt</strong> 电脑上安装额外的软件存放的地方，例如JDK，MySQL等等</p>
+<p>/proc 不用管</p>
+<p><strong>/root</strong> 系统管理员，也是超级权限者的主目录。</p>
+<p><strong>/usr</strong> 非常重要的目录，用户很多应用程序和文件都放在这个目录下，类似于Windows下的program files目录 </p>
+<p><strong>/tmp</strong> 存放临时文件，例如安装包等。</p>
+<p>/usr/bin 系统用户使用应用程序</p>
+<p>/usr/sbin 超级用户使用的</p>
+<p><strong>/var</strong>  临时，可存放日志。</p>
+<h1 id="常用的基本命令"><a href="#常用的基本命令" class="headerlink" title="常用的基本命令"></a>常用的基本命令</h1><p>Linux中的命令的基本语法是：<code>命令 -若干个参数 路径</code></p>
+<p>注意：Linux严格区分大小写。</p>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p><strong>绝对路径</strong>：从根目录开始定位的路径。在Linux的语法中，前面需要一个<code>/</code>表示根目录</p>
+<p><strong>相对路径</strong>：从当前所在的目录开始定位的目录。前面不需要<code>/</code></p>
+<p>**.. **:  打开上一级目录</p>
+<p>**~**：打开当前用户的主目录</p>
+<h2 id="目录管理相关的命令"><a href="#目录管理相关的命令" class="headerlink" title="目录管理相关的命令"></a>目录管理相关的命令</h2><blockquote>
+<p>cd 参数 路径</p>
+</blockquote>
+<p>意义：表示打开某个目录</p>
+<p>参数：无</p>
+<p>路径：必须要有</p>
+<hr>
+<blockquote>
+<p>ls  参数 路径</p>
+</blockquote>
+<p>意义：将目录下的内容列出来</p>
+<p>参数：</p>
+<p>-a：包括列出隐藏文件</p>
+<p>-l：包括列出文件的属性和权限等数据（可简写为ll）</p>
+<p>路径 ：可以无，表示列出当前的目录</p>
+<hr>
+<blockquote>
+<p>pwd 参数 路径</p>
+</blockquote>
+<p>意义：显示目前所在的目录</p>
+<p>参数：无需掌握</p>
+<p>路径：无</p>
+<hr>
+<blockquote>
+<p>mkdir 参数 路径</p>
+</blockquote>
+<p>意义： 创建一个文件夹</p>
+<p>参数：</p>
+<p>-m：配置文件的权限，直接配置，不需要看默认权限的脸色</p>
+<p>-p：帮助你直接将所需要的目录（包含上一级目录）递归创建起来</p>
+<p>路径：单级目录为直接创建，多级目录无p参数则报错，有p参数则递归创建</p>
+<p>例子：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> test # 会在当前目录下创建一个test文件夹</span><br><span class="line"><span class="built_in">mkdir</span> test1 test2 # 会在当前目录下创建一个test1文件夹和一个test2文件夹（并列存在的）</span><br><span class="line"><span class="built_in">mkdir</span> test3/test4 # 此时，如果没有test3，则会报错！！！</span><br><span class="line"><span class="built_in">mkdir</span> -p test5/test6 # 此时会创建多层目录</span><br></pre></td></tr></table></figure>
 
-<body>
-    <div id="main">
-        <div id="main-section">
-            <p class="seg-words">あ行</p>
-            <!-- あ行 -->
-            <div class="input-group border-1px">
-                <label for="group-class">あ ア</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(a)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px border-1px">
-                <label for="group-class">い イ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(i)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">う ウ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(u)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">え エ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(e)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">お オ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(o)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <!-- か行 -->
-            <p class="seg-words">か行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">か カ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ka)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">き キ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ki)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">く ク</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ku)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">け ケ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ke)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">こ コ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ko)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
+<hr>
+<blockquote>
+<p>rmdir 参数 路径</p>
+</blockquote>
+<p>意义：删除<strong>空目录</strong></p>
+<p>参数：</p>
+<p>-p：连同上一级的<strong>空目录</strong>一起删除</p>
+<p>路径：必须有</p>
+<p>举例子</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">假如有如下层级</span><br><span class="line">a--test--test1--test2</span><br><span class="line">a--test3</span><br><span class="line"> </span><br><span class="line">执行 <span class="built_in">rmdir</span> test3 # 成功将test3删除，因为它只有一级目录，且是空的</span><br><span class="line">执行 <span class="built_in">rmdir</span> test/test1/test2 # 报错，因为虽然是空的，但是涉及多个层级了</span><br><span class="line">执行 <span class="built_in">rmdir</span> -p test/test1/test2 #成功删除test--test1--test2，因为是test2是空的，且加上了p参数</span><br></pre></td></tr></table></figure>
 
-            <!-- さ行 -->
-            <p class="seg-words">さ行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">さ サ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(sa)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">し シ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(shi)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">す ス</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(su)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">せ セ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(se)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">そ ソ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(so)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
+<hr>
+<blockquote>
+<p>cp 参数 来源路径1 来源路径2… 目标路径</p>
+</blockquote>
+<p>意义：复制来源路径的资源并粘贴到目标路径</p>
+<p>参数：</p>
+<p><strong>-a：</strong>相当於 -pdr 的意思，至於 pdr 请参考下列说明；(常用)</p>
+<p>-p：连同文件的属性一起复制过去，而非使用默认属性(备份常用)；</p>
+<p>-d：若来源档为连结档的属性(link file)，则复制连结档属性而非文件本身；</p>
+<p>-r：递归持续复制，用於目录的复制行为；(常用)</p>
+<p><strong>-i：</strong>若目标档(destination)已经存在时，在覆盖时会先询问动作的进行(常用)</p>
+<p>来源路径：必须要有</p>
+<p>目标路径：必须要有</p>
+<hr>
+<blockquote>
+<p>rm 参数 路径</p>
+</blockquote>
+<p>意义：移除文件或目录</p>
+<p>参数：</p>
+<p>-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；</p>
+<p>-i ：互动模式，在删除前会询问使用者是否动作</p>
+<p>-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！</p>
+<p>路径：必须有！重要文件一定不能删掉！！！！</p>
+<blockquote>
+<p>mv 参数 来源路径1 来源路径2… 目标路径</p>
+</blockquote>
+<p>意义：移动文件和目录，或者修改名称</p>
+<p>参数：</p>
+<p>-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</p>
+<p>-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！</p>
+<p>-u ：若目标文件已经存在，且 source 比较新，才会升级 (update)</p>
+<p>注意：如果目标路径存在则会移动，不存在则会重命名</p>
+<h2 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h2><blockquote>
+<p>看懂文件属性</p>
+</blockquote>
+<p>可以通过ll开查看文件属性</p>
+<p>文件或者文件夹最开头的部分显示一串字符即为属性</p>
+<p>第一个字符表示文件是目录、文件还是连接文件等</p>
+<ul>
+<li>当为[ <strong>d</strong> ]则是目录</li>
+<li>当为[ <strong>-</strong> ]则是文件；</li>
+<li>若是[ <strong>l</strong> ]则表示为链接文档 ( link file )；</li>
+<li>若是[ <strong>b</strong> ]则表示为装置文件里面的可供储存的接口设备 ( 可随机存取装置 )；</li>
+<li>若是[ <strong>c</strong> ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标 ( 一次性读取装置 )。</li>
+</ul>
+<p>第二三四个字符为一组（rwx）</p>
+<p>r表示可读；w表示可写；x表示可执行</p>
+<p>当没有这个某个权限时会用<code>-</code>符号替换，例如r-x表示可读可执行不可写</p>
+<p>第五六七同上，表示【属组权限】，第八九十同上，表示【其他用户权限】</p>
+<h2 id="文件查看"><a href="#文件查看" class="headerlink" title="文件查看"></a>文件查看</h2><blockquote>
+<p>cat 参数 路径</p>
+</blockquote>
+<p>意义：由第一行开始显示文件内容</p>
+<p>参数：</p>
+<p>-A ：可列出一些特殊字符而不是空白而已；</p>
+<p>-n ：列印出行号，连同空白行也会有行号</p>
+<p>路径：必须有</p>
+<h2 id="文件编辑操作"><a href="#文件编辑操作" class="headerlink" title="文件编辑操作"></a>文件编辑操作</h2><blockquote>
+<p>vim </p>
+</blockquote>
+<p>命令模式：刚刚进入vim，便启动了命令模式，此时敲击键盘的动作会被vim识别</p>
+<ul>
+<li><strong>i</strong> 切换到输入模式，以输入字符。</li>
+<li><strong>x</strong> 删除当前光标所在处的字符。</li>
+<li><strong>:</strong> 切换到底线命令模式，以在最底一行输入命令。</li>
+</ul>
+<p>输入模式：在命令模式下按下i就进入了输入模式。</p>
+<ul>
+<li><strong>字符按键以及Shift组合</strong>，输入字符</li>
+<li><strong>ENTER</strong>，回车键，换行</li>
+<li><strong>BACK SPACE</strong>，退格键，删除光标前一个字符</li>
+<li><strong>DEL</strong>，删除键，删除光标后一个字符</li>
+<li><strong>方向键</strong>，在文本中移动光标</li>
+<li><strong>HOME</strong>/<strong>END</strong>，移动光标到行首/行尾</li>
+<li><strong>Page Up</strong>/<strong>Page Down</strong>，上/下翻页</li>
+<li><strong>Insert</strong>，切换光标为输入/替换模式，光标将变成竖线/下划线</li>
+<li><strong>ESC</strong>，退出输入模式，切换到命令模式</li>
+</ul>
+<p>底线命令模式：在命令模式下按下:（英文冒号）就进入了底线命令模式。</p>
+<p>底线命令模式可以输入单个或多个字符的命令，可用的命令非常多。</p>
+<p>在底线命令模式中，基本的命令有（已经省略了冒号）：</p>
+<ul>
+<li>q 退出程序</li>
+<li>w 保存文件</li>
+</ul>
+<p>按ESC键可随时退出底线命令模式。</p>
+<p>简单的说，我们可以将这三个模式想成底下的图标来表示：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim aa.txt # 进入了命令模式，此时还不能输入，点击i进入输入模式，此时会显示游标（闪烁）、空行（~），文件名（底部）</span><br><span class="line">输入模式下可以编辑文字，左下角有-INSERT-字样，此时除了键盘的ESC键之外都可表示为输入字符</span><br><span class="line">按下ESC键退回到命令模式</span><br><span class="line">输入:wq 存储后离开vim</span><br></pre></td></tr></table></figure>
 
-            <!-- た行 -->
-            <p class="seg-words">た行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">た タ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ta)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ち チ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(chi)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">つ ツ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(tsu)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">て テ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(te)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">と ト</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(to)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
+<h2 id="用户账号的管理"><a href="#用户账号的管理" class="headerlink" title="用户账号的管理"></a>用户账号的管理</h2><p>主要包括用户账号的添加、修改和删除。</p>
+<blockquote>
+<p>useradd 参数 用户名</p>
+</blockquote>
+<p>意义：添加账号</p>
+<p>参数：</p>
+<ul>
+<li><ul>
+<li>-c comment 指定一段注释性描述。</li>
+<li>-d 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。</li>
+<li>-g 用户组 指定用户所属的用户组。</li>
+<li>-G 用户组，用户组 指定用户所属的附加组。</li>
+<li>-m　使用者目录如不存在则自动建立。</li>
+<li>-s Shell文件 指定用户的登录Shell。</li>
+<li>-u 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。</li>
+</ul>
+</li>
+<li><p>用户名 :</p>
+</li>
+<li><ul>
+<li>指定新账号的登录名。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m zhizhang</span><br><span class="line"># 此命令创建了一个用户zhizhang，并通过-m选项来为登录名zhizhang产生一个主目录/home/zhizhang</span><br></pre></td></tr></table></figure>
 
-            <!-- な行 -->
-            <p class="seg-words">な行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">な ナ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(na)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">に ニ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ni)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ぬ ヌ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(nu)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ね ネ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ne)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">の ノ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(no)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
 
-            <!-- は行 -->
-            <p class="seg-words">は行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">は ハ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ha)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ひ ヒ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(hi)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ふ フ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(fu)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">へ ヘ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(he)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ほ ホ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ho)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
 
-            <!-- ま行 -->
-            <p class="seg-words">ま行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">ま マ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ma)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">み ミ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(mi)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">む ム</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(mu)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">め メ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(me)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">も モ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(mo)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
+<blockquote>
+<p>Linux下切换用户</p>
+</blockquote>
+<p>切换用户的命令：su 用户名</p>
+<p>普通用户切换到root用户，还可以使用命令：sudo su</p>
+<blockquote>
+<p>userdel 参数 用户名</p>
+</blockquote>
+<p>意义：删除账号</p>
+<p>常用参数： -r  作用是把用户的主目录一起删除。</p>
+<h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><blockquote>
+<p>df：列出文件的整体磁盘使用量</p>
+<p>du:检查磁盘空间使用量</p>
+</blockquote>
+<h2 id="压缩和解压命令"><a href="#压缩和解压命令" class="headerlink" title="压缩和解压命令"></a>压缩和解压命令</h2><blockquote>
+<p>tar 参数 操作后的文件  操作前的文件</p>
+</blockquote>
+<p>参数：</p>
+<p>-c 建立新的压缩文件</p>
+<p>-t 显示压缩文件的内容</p>
+<p>-x 从压缩文件中提取文件</p>
+<p>-z 支持gzip解压文件</p>
+<p>-v 显示操作过程</p>
+<p>-f&lt;备份文件&gt; 指定压缩文件文件</p>
+<p>压缩文件 非打包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch a.c       </span></span><br><span class="line"><span class="comment"># tar -czvf test.tar.gz a.c   //压缩 a.c文件为test.tar.gz</span></span><br><span class="line">a.c</span><br></pre></td></tr></table></figure>
 
-            <!-- や行 -->
-            <p class="seg-words">や行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">や ヤ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ya)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">い イ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(i)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ゆ ユ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(yu)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">え エ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(e)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">よ ヨ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(yo)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
+<p>列出压缩文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tar -tzvf test.tar.gz </span></span><br><span class="line">-rw-r--r-- root/root     0 2010-05-24 16:51:59 a.c</span><br></pre></td></tr></table></figure>
 
-            <!-- ら行 -->
-            <p class="seg-words">ら行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">ら ラ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ra)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">り リ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ri)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">る ル</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ru)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">れ レ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(re)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">ろ ロ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(ro)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
+<p>解压文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tar -xzvf test.tar.gz </span></span><br><span class="line">a.c</span><br></pre></td></tr></table></figure>
 
-            <!-- わ行 -->
-            <p class="seg-words">わ行</p>
-            <div class="input-group border-1px">
-                <label for="group-class">わ ワ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(wa)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">い イ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(i)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">う ウ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(u)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">え エ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(e)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-            <div class="input-group border-1px">
-                <label for="group-class">を ヲ</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(wo)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
+<h2 id="网络和进程管理"><a href="#网络和进程管理" class="headerlink" title="网络和进程管理"></a>网络和进程管理</h2><p>ifconfig 查看网络接口属性</p>
+<h2 id="RPM包管理命令"><a href="#RPM包管理命令" class="headerlink" title="RPM包管理命令"></a>RPM包管理命令</h2><p>rpm -qa 查看已安装的rpm包</p>
+<p>rpm -ivh xxx.rpm 安装rpm包</p>
+<p>rpm -e xxx 卸载程序包</p>
+<h2 id="yum包管理"><a href="#yum包管理" class="headerlink" title="yum包管理"></a>yum包管理</h2><p>yum search xx 搜索软件包 </p>
+<p>yum install xx 下载并安装软件包</p>
+<p>yum remove xxx 删除软件包</p>
 
-            <!-- ン行 -->
-            <p class="seg-words">ん</p>
-            <div class="input-group border-1px">
-                <label for="group-class">ん ン</label>
-                <div class="ui-select">
-                    <div class="select-btn">
-                        <span class="ui-text">(n)</span>
-                        <span class="ui-icon">
-                            <div class="arrow">
-                                <div class="arrow1"></div>
-                                <div class="arrow2"></div>
-                            </div>
-                        </span>
-                    </div>
-                    <div id="group-class" class="ui-select-holder" data-catalog="0"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
     
 
     
@@ -1135,7 +560,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://zhizhangxuezhang.github.io/assets/demo/border1px.html" title="" target="_blank">https://zhizhangxuezhang.github.io/assets/demo/border1px.html</a>
+          <a href="https://zhizhangxuezhang.github.io/2021/10/06/LinuxNotes/" title="Linux笔记" target="_blank">https://zhizhangxuezhang.github.io/2021/10/06/LinuxNotes/</a>
         </li>
         
         <li>
@@ -1152,6 +577,25 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -1202,7 +646,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://zhizhangxuezhang.github.io/assets/demo/border1px.html" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://zhizhangxuezhang.github.io/2021/10/06/LinuxNotes/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -1214,6 +658,25 @@
   </div>
 </article>
 
+
+<nav id="article-nav">
+  
+    <a href="/2021/10/06/LinuxNotesSimple/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux命令简版
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/04/SwordFingerOffer_%20ReadingNotes_%201_%20InterviewLi/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指Offer_读书笔记_1_面试流程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 <aside class="wrap-side-operation">
@@ -1228,6 +691,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%9F%BA%E6%9C%AC%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">Linux基本目录说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">常用的基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84"><span class="toc-number">2.1.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">目录管理相关的命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">基本属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.4.</span> <span class="toc-text">文件查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91%E6%93%8D%E4%BD%9C"><span class="toc-number">2.5.</span> <span class="toc-text">文件编辑操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">2.6.</span> <span class="toc-text">用户账号的管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"><span class="toc-number">2.7.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4"><span class="toc-number">2.8.</span> <span class="toc-text">压缩和解压命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">2.9.</span> <span class="toc-text">网络和进程管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPM%E5%8C%85%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">2.10.</span> <span class="toc-text">RPM包管理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yum%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-number">2.11.</span> <span class="toc-text">yum包管理</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -1283,7 +759,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
