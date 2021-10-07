@@ -233,7 +233,7 @@
             
 
   
-    <article id="post-a" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-GitUseNotes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -241,7 +241,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/10/07/a/" target="_blank">Git的使用</a>
+	  <a class="article-title" href="/2021/10/07/GitUseNotes/" target="_blank">Git的使用</a>
   
     </h1>
   
@@ -249,7 +249,7 @@
 
   
   
-<a href="/2021/10/07/a/" class="archive-article-date">
+<a href="/2021/10/07/GitUseNotes/" class="archive-article-date">
         <time datetime="2021-10-07T06:32:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-07</time>
 </a>
 
@@ -262,9 +262,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-
-<h1 id="1-什么是版本控制？"><a href="#1-什么是版本控制？" class="headerlink" title="1. 什么是版本控制？"></a>1. 什么是版本控制？</h1><p>例如一个APP上线有很多个版本，例如老师布置做的PPT有很多的版本，那么我们做的web项目自然也要有版本的控制。<br>版本控制主要分为<strong>本地版本控制</strong>、<strong>集中版本控制</strong>（例如：SVN）、<strong>集中版本控制</strong>（例如：Git）。</p>
+    <h1 id="1-什么是版本控制？"><a href="#1-什么是版本控制？" class="headerlink" title="1. 什么是版本控制？"></a>1. 什么是版本控制？</h1><p>例如一个APP上线有很多个版本，例如老师布置做的PPT有很多的版本，那么我们做的web项目自然也要有版本的控制。<br>版本控制主要分为<strong>本地版本控制</strong>、<strong>集中版本控制</strong>（例如：SVN）、<strong>集中版本控制</strong>（例如：Git）。</p>
 <p>本地版本控制是一人一电脑的模式，就是我们平时写出的多个版本的PPT</p>
 <p>集中版本控制是多人一电脑的模式，就是有一个共享的服务器，当我们每个人完成一部分后就向他提交。</p>
 <p>集中版本控制是多人多电脑的模式，即每个人手中的电脑就是存着全部版本的内容。每次先向本地版本提交，再向远程版本提交即可。</p>
@@ -272,51 +270,9 @@
 <p>所以，我们使用Git。</p>
 <p><strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
 <p>Git的Git Bash的很多命令都具有Linux命令的风格。（例如vim和:wq等）</p>
-<h1 id="2-必要配置"><a href="#2-必要配置" class="headerlink" title="2. 必要配置"></a>2. 必要配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看所有配置 </span></span><br><span class="line">git config --list</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看系统config</span></span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line"><span class="comment">#查看当前用户（global）配置</span></span><br><span class="line">git config --global  --list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置用户名和邮箱（必须设置）</span></span><br><span class="line">git config --global user.name <span class="string">&quot;xxx&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email xx@xx.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="3-Git-Bash操作"><a href="#3-Git-Bash操作" class="headerlink" title="3. Git Bash操作"></a>3. Git Bash操作</h1><p><img src="C:\Users\jiaqi\AppData\Roaming\Typora\typora-user-images\image-20211007144453147.png" alt="image-20211007144453147"></p>
-<p><strong>关于提交</strong>（远程仓库已有该仓库）</p>
-<ul>
-<li><p>选择一个空的目录执行<code>git init</code>将可以把这个目录变成一个工作区（这时候会生成一个.git隐藏文件）。</p>
-</li>
-<li><p>右击选择git bash ，输入<code>git add .</code>，将该工作区的所有文件添加到了暂存区</p>
-</li>
-<li><p>再输入<code>git commit -m &quot;提交信息&quot;</code>,此时将暂存区的内容提交到了本地仓库</p>
-</li>
-<li><p>然后输入<code>git push origin master</code> ，将本地仓库的内容提交到了远程仓库</p>
-</li>
-</ul>
-<p><strong>关于提交</strong>（远程仓库还没有这个仓库）</p>
-<ul>
-<li><p>这个时候就相当于你是从0开始的，那么第一步得先到远程仓库建立好对应的空项目</p>
-</li>
-<li><p>然后再在本地进行上一步的操作。</p>
-</li>
-</ul>
-<p><strong>关于拉取</strong>（本地已有该仓库）</p>
-<ul>
-<li>直接使用<code>git pull</code></li>
-</ul>
-<p><strong>关于拉取</strong>（本地没有该仓库，属于第一次拉取）</p>
-<ul>
-<li>直接使用<code>git clone 地址</code></li>
-</ul>
-<h2 id="配置公钥-远程仓库与本地仓库的关联"><a href="#配置公钥-远程仓库与本地仓库的关联" class="headerlink" title="配置公钥(远程仓库与本地仓库的关联)"></a>配置公钥(远程仓库与本地仓库的关联)</h2><ol>
-<li><p>注册一个GitHub/Gitee</p>
-</li>
-<li><p>```bash</p>
-<h1 id="进入-C-Users-Administrator-ssh-目录"><a href="#进入-C-Users-Administrator-ssh-目录" class="headerlink" title="进入 C:\Users\Administrator.ssh 目录"></a>进入 C:\Users\Administrator.ssh 目录</h1><h1 id="右键git-bash-输入"><a href="#右键git-bash-输入" class="headerlink" title="右键git bash 输入"></a>右键git bash 输入</h1><p>ssh-keygen</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 这时候在该目录会生成两个文件，一个是id_rua.pub和id_rua</span><br><span class="line"></span><br><span class="line">4. 把id_rua.pub打开，复制内容，到GitHub/Gitee上新建一个公钥输入即可。</span><br><span class="line"></span><br><span class="line"># 新建远程仓库</span><br><span class="line"></span><br><span class="line">新建远程仓库选择开源许可证可选GPL-3.0</span><br><span class="line"></span><br><span class="line"># IDEA使用Git</span><br><span class="line"></span><br><span class="line">**关于提交**（远程仓库已有该仓库）</span><br><span class="line"></span><br><span class="line">- 选择一个空的目录执行`git init`将可以把这个目录变成一个工作区（这时候会生成一个.git隐藏文件）。</span><br><span class="line"></span><br><span class="line">  ![image-20211007150715101](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007150715101.png)</span><br><span class="line"></span><br><span class="line">- 右击选择git bash ，输入`git add .`，将该工作区的所有文件添加到了暂存区</span><br><span class="line"></span><br><span class="line">  ![image-20211007150755331](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007150755331.png)</span><br><span class="line"></span><br><span class="line">  （此时左边区域的文件还没add是红色的，add之后是绿色的）</span><br><span class="line"></span><br><span class="line">- 再输入`git commit -m &quot;提交信息&quot;`,此时将暂存区的内容提交到了本地仓库</span><br><span class="line"></span><br><span class="line">  ![image-20211007150911878](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007150911878.png)</span><br><span class="line"></span><br><span class="line">  （此时左边区域的文件还没commit是绿色的，commit后是黑色的）</span><br><span class="line"></span><br><span class="line">  ![image-20211007151135182](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007151135182.png)</span><br><span class="line"></span><br><span class="line">- 然后输入`git push origin master` ，将本地仓库的内容提交到了远程仓库</span><br><span class="line"></span><br><span class="line">  ![image-20211007151225154](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007151225154.png)</span><br><span class="line"></span><br><span class="line">  （设置该项目的远程仓库是哪一个）</span><br><span class="line"></span><br><span class="line">  ![image-20211007151342001](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007151342001.png)</span><br><span class="line"></span><br><span class="line">  （origin表示远程，不用修改，URL根据你远程仓库的地址来配置即可）</span><br><span class="line"></span><br><span class="line">  ![image-20211007151501403](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007151501403.png)</span><br><span class="line"></span><br><span class="line">  （修改提交的分支时点击）</span><br><span class="line"></span><br><span class="line">  ![image-20211007151551083](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007151551083.png)</span><br><span class="line"></span><br><span class="line">  ![image-20211007151607402](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007151607402.png)</span><br><span class="line"></span><br><span class="line">  （第一个选项可以新建分支，第二个选项修改本地分支，第三个选项为远程分支）</span><br><span class="line"></span><br><span class="line">  ![image-20211007152330919](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007152330919.png)</span><br><span class="line"></span><br><span class="line">  ![image-20211007152356012](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007152356012.png)</span><br><span class="line"></span><br><span class="line">**关于提交**（远程仓库还没有这个仓库）</span><br><span class="line"></span><br><span class="line">- 这个时候就相当于你是从0开始的，那么第一步得先到远程仓库建立好对应的空项目</span><br><span class="line"></span><br><span class="line">- 然后再在本地进行上一步的操作。</span><br><span class="line"></span><br><span class="line">**关于拉取**（本地已有该仓库）</span><br><span class="line"></span><br><span class="line">- 直接使用`git pull`</span><br><span class="line"></span><br><span class="line">  ![image-20211007152447590](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007152447590.png)</span><br><span class="line"></span><br><span class="line">  ![image-20211007152750186](C:\Users\jiaqi\myblog\source\assets\blogImg\image-20211007152750186.png)</span><br><span class="line"></span><br><span class="line">**关于拉取**（本地没有该仓库，属于第一次拉取）</span><br><span class="line"></span><br><span class="line">- 直接使用`git clone 地址`</span><br><span class="line"></span><br><span class="line">这个命令只需要用命令行即可</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 关于分支的命令</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="列出所有本地分支"><a href="#列出所有本地分支" class="headerlink" title="列出所有本地分支"></a>列出所有本地分支</h1><p>git branch</p>
-<h1 id="列出所有远程分支"><a href="#列出所有远程分支" class="headerlink" title="列出所有远程分支"></a>列出所有远程分支</h1><p>git branch -r</p>
-<h1 id="新建一个分支，但依然停留在当前分支"><a href="#新建一个分支，但依然停留在当前分支" class="headerlink" title="新建一个分支，但依然停留在当前分支"></a>新建一个分支，但依然停留在当前分支</h1><p>git branch [branch-name]</p>
-<h1 id="新建一个分支，并切换到该分支"><a href="#新建一个分支，并切换到该分支" class="headerlink" title="新建一个分支，并切换到该分支"></a>新建一个分支，并切换到该分支</h1><p>git checkout -b [branch]</p>
-<h1 id="合并指定分支到当前分支"><a href="#合并指定分支到当前分支" class="headerlink" title="合并指定分支到当前分支"></a>合并指定分支到当前分支</h1><p>git merge [branch]</p>
-<h1 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h1><p>git branch -d [branch-name]</p>
-<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><p>git push origin –delete [branch-name]$ git branch -dr [remote/branch]</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">过程遇到的问题和解决方法：</span><br><span class="line"></span><br><span class="line">问题1：在push的过程中可以使用ssh和https两种，只要你配置了秘钥，ssh就可以使用，而且不用输入账号密码；但是使用https需要使用账号密码，但是在输入密码过程中会出现密码错误的问题，可参考下面方案解决。</span><br><span class="line"></span><br><span class="line">https://shliang.blog.csdn.net/article/details/119698015</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">问题2：有时候在远程仓库不小心手动在远程仓库直接修改了文件（也有可能是其他小伙伴提交了新版），导致了本地仓库的内容不是最新的，那么这个时候要提交到远程就会报错，**所以需要先拉取，再提交，这是一个好的习惯。**当然拉取的时候还要注意一下，问题解决：</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/PaperJack/article/details/120635595</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 常用命令清单</span><br><span class="line"></span><br><span class="line">```bas</span><br><span class="line">git init 本地初始化</span><br><span class="line">git add .  添加所有文件至暂存区</span><br><span class="line">git commit -m &quot;提交信息&quot; 提交到本地仓库</span><br><span class="line">git push origin master 将本地仓库推到远程仓库的master分支下</span><br><span class="line">git clone 项目地址 将远程仓库克隆到本地仓库（本地仓库原本没有该项目的情况下）</span><br><span class="line">git pull 将远程仓库拉取到本地仓库（本地仓库原本有该项目的情况下），也叫更新、同步</span><br><span class="line"></span><br><span class="line">git branch 查看本地所有分支</span><br><span class="line">git branch -a 查看所有的分支</span><br><span class="line">git branch -r 查看远程所有分支</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+    
+    <a class="article-more-a" href="/2021/10/07/GitUseNotes/#more">more >></a>
+    
     
 
     
@@ -358,7 +314,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/10/07/a/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/10/07/GitUseNotes/">展开全文 >></a>
     </p>
     
 
