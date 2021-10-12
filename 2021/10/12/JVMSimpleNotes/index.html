@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhizhangxuezhang.github.io">
-  <title>Java虚拟机 | Jack·Kwok的个人网站</title>
+  <title>Java虚拟机【简版】 | Jack·Kwok的个人网站</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Java虚拟机入门教程 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;chanshuyi&#x2F;category&#x2F;1335567.html   Java虚拟机规范教程 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;chanshuyi&#x2F;category&#x2F;1366254.html">
+  <meta name="description" content="1. 学习JVM的目的 深入地理解 Java 这门语言 为线上排查问题打下基础  2. 主要的虚拟机 虚拟机的始祖：Sun Classic 无疾而终：Sun Exact VM 武林盟主：Sun HotSpot VM 百家争鸣：BEA JRockit &#x2F; IBM J9 VM 武林外传（那些无名虚拟机）：Apache Harmony、Google Android Dalvik VM、Mircosoft">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java虚拟机">
-<meta property="og:url" content="https://zhizhangxuezhang.github.io/2021/10/09/JVMNotes/index.html">
+<meta property="og:title" content="Java虚拟机【简版】">
+<meta property="og:url" content="https://zhizhangxuezhang.github.io/2021/10/12/JVMSimpleNotes/index.html">
 <meta property="og:site_name" content="Jack·Kwok的个人网站">
-<meta property="og:description" content="Java虚拟机入门教程 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;chanshuyi&#x2F;category&#x2F;1335567.html   Java虚拟机规范教程 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;chanshuyi&#x2F;category&#x2F;1366254.html">
+<meta property="og:description" content="1. 学习JVM的目的 深入地理解 Java 这门语言 为线上排查问题打下基础  2. 主要的虚拟机 虚拟机的始祖：Sun Classic 无疾而终：Sun Exact VM 武林盟主：Sun HotSpot VM 百家争鸣：BEA JRockit &#x2F; IBM J9 VM 武林外传（那些无名虚拟机）：Apache Harmony、Google Android Dalvik VM、Mircosoft">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-09T13:22:13.000Z">
-<meta property="article:modified_time" content="2021-10-09T13:29:21.014Z">
+<meta property="article:published_time" content="2021-10-12T13:25:01.000Z">
+<meta property="article:modified_time" content="2021-10-12T13:31:36.172Z">
 <meta property="article:author" content="Jack·Kwok">
 <meta property="article:tag" content="技术笔记">
 <meta property="article:tag" content="随笔">
@@ -234,14 +234,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JVMNotes" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JVMSimpleNotes" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Java虚拟机
+      Java虚拟机【简版】
     </h1>
   
 
@@ -253,8 +253,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/10/09/JVMNotes/" class="archive-article-date">
-        <time datetime="2021-10-09T13:22:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-09</time>
+<a href="/2021/10/12/JVMSimpleNotes/" class="archive-article-date">
+        <time datetime="2021-10-12T13:25:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-12</time>
 </a>
 
   
@@ -267,7 +267,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">32字</span>
+      <span class="post-count">5.1k字</span>
     </span>
   </span>
 
@@ -276,7 +276,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">18分</span>
     </span>
   </span>
 </div>
@@ -287,16 +287,420 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <span id="more"></span>
-
-
-
-<p>Java虚拟机入门教程</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chanshuyi/category/1335567.html">https://www.cnblogs.com/chanshuyi/category/1335567.html</a></p>
+    <h1 id="1-学习JVM的目的"><a href="#1-学习JVM的目的" class="headerlink" title="1. 学习JVM的目的"></a>1. 学习JVM的目的</h1><ul>
+<li>深入地理解 Java 这门语言</li>
+<li>为线上排查问题打下基础</li>
+</ul>
+<h1 id="2-主要的虚拟机"><a href="#2-主要的虚拟机" class="headerlink" title="2. 主要的虚拟机"></a>2. 主要的虚拟机</h1><ul>
+<li>虚拟机的始祖：Sun Classic</li>
+<li>无疾而终：Sun Exact VM</li>
+<li>武林盟主：<strong>Sun HotSpot VM</strong></li>
+<li>百家争鸣：BEA JRockit / IBM J9 VM</li>
+<li>武林外传（那些无名虚拟机）：Apache Harmony、Google Android Dalvik VM、Mircosoft JVM等等</li>
+</ul>
+<span id="more"></span>
+<h1 id="3-什么是虚拟机"><a href="#3-什么是虚拟机" class="headerlink" title="3. 什么是虚拟机"></a>3. 什么是虚拟机</h1><p>我们知道不同的操作系统底层的实现是不一样的。因此在一个操作系统上编译的机器码不能在另一个操作系统上被识别。所以和其他语言不同，Java语言不直接编译成与系统有关的机器码，而是编译字节码，再通过不同的系统上提前安装好的Java虚拟机分别解释成机器码。</p>
+<h1 id="4-源代码到机器码的过程"><a href="#4-源代码到机器码的过程" class="headerlink" title="4. 源代码到机器码的过程"></a>4. 源代码到机器码的过程</h1><p>编译器：</p>
+<ul>
+<li><p>前端编译器：源代码到字节码，代表：Sun的javac</p>
+<ul>
+<li>编译器将Java源代码编译成为字节码文件（A.java–&gt;A.class），字节码文件是由16进制数字组成</li>
+</ul>
+</li>
+<li><p>JIT 编译器：从字节码到机器码，代表：HotSpot VM的C1、C2</p>
+<ul>
+<li><p>分类</p>
+<ul>
+<li>使用 Java 解释器解释执行字节码，启动速度快但运行速度慢</li>
+<li>使用 JIT 编译器（即时编译器）将字节码转化为本地机器代码，启动速度慢但运行速度快<ul>
+<li>Client Compiler（C1 编译器）</li>
+<li>Server Compiler（C2 编译器）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>运行模式</p>
+<ul>
+<li>混合模式<ul>
+<li>C1 和 C2 两种模式混合起来使用（默认方式）</li>
+<li>如果想单独使用 C1 模式或 C2 模式，使用 <code>-client</code> 或 <code>-server</code> 打开</li>
+</ul>
+</li>
+<li>解释模式<ul>
+<li>所有代码都解释执行</li>
+<li>使用 <code>-Xint</code> 参数打开</li>
+</ul>
+</li>
+<li>编译模式<ul>
+<li>优先采用编译，但是无法编译时也会解释执行</li>
+<li>使用 <code>-Xcomp</code> 参数打开</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>AOT 编译器：源代码到机器码，代表：GNU Compiler for the Java（GCJ）</p>
+</li>
+</ul>
 <br>
 
-<p>Java虚拟机规范教程</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chanshuyi/category/1366254.html">https://www.cnblogs.com/chanshuyi/category/1366254.html</a></p>
+<p>对比：</p>
+<ul>
+<li>编译速度上，解释执行 &gt; AOT 编译器 &gt; JIT 编译器。</li>
+<li>编译质量上，JIT 编译器 &gt; AOT 编译器 &gt; 解释执行。</li>
+</ul>
+<h1 id="5-字节码文件的结构"><a href="#5-字节码文件的结构" class="headerlink" title="5. 字节码文件的结构"></a>5. 字节码文件的结构</h1><p>字节码文件由以下七个部分组成</p>
+<ul>
+<li>魔数与Class文件版本</li>
+<li>常量池</li>
+<li>访问标志</li>
+<li>类索引、父类索引、接口索引</li>
+<li>字段表集合</li>
+<li>方法表集合</li>
+<li>属性表集合</li>
+</ul>
+<p>字节码文件中的十六进制数字以若干位为单位，分别代表着以上的信息。</p>
+<p>具体内容可查看这篇文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/chanshuyi/p/jvm_serial_05_jvm_bytecode_analysis.html">https://www.cnblogs.com/chanshuyi/p/jvm_serial_05_jvm_bytecode_analysis.html</a></p>
+<h1 id="6-Java虚拟机内存结构"><a href="#6-Java虚拟机内存结构" class="headerlink" title="6. Java虚拟机内存结构"></a>6. Java虚拟机内存结构</h1><ul>
+<li><p>虚拟机内存结构（官方也叫运行时数据区）</p>
+<ul>
+<li><p>公有：所有线程都共享一个，包含公有数据</p>
+<ul>
+<li>Java堆：几乎所有的实例对象<ul>
+<li>年轻代<ul>
+<li>Eden区</li>
+<li>From Survivor 0区</li>
+<li>From Survivor 1区</li>
+</ul>
+</li>
+<li>老年代</li>
+</ul>
+</li>
+<li>方法区（1.7版本称为永久代（Permanent Space），1.8版本称为元空间（MetaSpace））：每个类的结构信息，例如：运行时常量池、字段和方法数据、构造方法等</li>
+<li>常量池：常量池其实是存放在方法区中的</li>
+</ul>
+</li>
+<li><p>私有：每个线程都有一个，包含私有数据</p>
+<ul>
+<li><p>PC寄存器（Program Counter 寄存器）：保存线程当前正在执行的方法</p>
+<ul>
+<li>如果是native方法，保存的值是undefined</li>
+<li>如果不是native方法，保存的值是Java虚拟机正在执行的字节码指令地址。</li>
+</ul>
+</li>
+<li><p>Java虚拟机栈</p>
+<ul>
+<li>与线程同时创建，用来存储栈帧，即存储局部变量与一些过程结果的地方。</li>
+<li>栈帧存储的数据包括：局部变量表、操作数栈。</li>
+</ul>
+</li>
+<li><p>本地方法栈</p>
+<ul>
+<li>Java 虚拟机使用其他语言（例如 C 语言）来实现指令集解释器时，会使用到本地方法栈。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<p>当有一个对象需要分配时，先分配到年轻代的Eden区，等到Eden 区域内存不够时，Java 虚拟机会启动垃圾回收（GC）。此时 Eden 区中没有被引用的对象的内存就会被回收，而一些存活时间较长的对象则会进入到老年代。在JVM中<code>-XX:MaxTenuringThreshold</code>参数用来设置晋升到老年代所需要经历的GC次数。即一个对象分配进来后，如果经历这么多次的GC，它都还没有被作为垃圾回收，也就是一直有被引用，那么这个对象到指定的GC次数之后就会晋升到老年代。</p>
+<p>PC寄存器保存的是某个线程当前正在执行的方法，由于一个线程在某一时刻执行的方法只有唯一一个，而这个方法被叫做该线程的当前方法。</p>
+<p>在JVM中除了这几个内存外，其实还有直接内存、栈帧等，但用的比较少。</p>
+<br>
+
+<p>问：为什么给对象分配空间也需要分为年轻代和老年代呢？意义是什么？</p>
+<p>根据经验，有些对象的存活时间很长，而有些对象的存活时间很短，如果我们把它们混在一起，那么必然会导致有部分对象一直被扫描，但又一直不是垃圾，这就很浪费时间。那采取的措施就是扫描若干次之后，某个对象仍然不是垃圾，那就把它移动到老年区。</p>
+<p>问：Eden：from：to分区的比例是多少？</p>
+<p>默认的虚拟机配置是 Eden：from ：to = 8:1:1。这是IBM公司统计的结果，他们发现80%的对象存活的时间都很短，于是将Eden区设置为80%。</p>
+<p>问：什么是native方法？</p>
+<p>看以下文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_23501635/article/details/78902721">https://blog.csdn.net/qq_23501635/article/details/78902721</a></p>
+<h1 id="7-JVM类的加载机制"><a href="#7-JVM类的加载机制" class="headerlink" title="7. JVM类的加载机制"></a>7. JVM类的加载机制</h1><p>JVM 虚拟机执行 class 字节码的过程可以分为七个阶段：<strong>加载、验证、准备、解析、初始化、使用、卸载。</strong></p>
+<hr>
+<ul>
+<li>加载：把字节码数据加载到内存中。</li>
+<li>验证：加载完Class文件并在方法区创建对应的Class对象后，JVM会对字节码流进行校验<ul>
+<li>JVM规范校验 例如是否以<code>cafe babe</code>开头，主次版本号是否在当前虚拟机处理范围之内等。</li>
+<li>代码逻辑校验 方法传入参数是否与方法定义时相同，返回参数类型是否与方法定义相同，引用了某个类，那这个类有没有声明等等。</li>
+</ul>
+</li>
+<li><strong>准备</strong>：为「类变量」分配内存并初始化<ul>
+<li>内存分配对象：Java 中的变量有「类变量」和「类成员变量」两种类型，「类变量」指的是被 static 修饰的变量，而其他所有类型的变量都属于「类成员变量」。在准备阶段，JVM 只会为「类变量」分配内存，而不会为「类成员变量」分配内存。「类成员变量」的内存分配需要等到初始化阶段才开始。</li>
+<li>初始化的类型：在准备阶段，JVM 会为类变量分配内存，并为其初始化。但是这里的初始化指的是为变量赋予 Java 语言中该数据类型的零值，而不是用户代码里初始化的值。但如果一个变量是常量（被 static final 修饰）的话，那么在准备阶段，属性便会被赋予用户希望的值。</li>
+</ul>
+</li>
+<li>解析：JVM 针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符 7 类引用进行解析。<ul>
+<li>作用：将其在常量池中的符号引用替换成直接其在内存中的直接引用。</li>
+</ul>
+</li>
+<li><strong>初始化</strong>（最常见的就是<strong>我们new一个对象</strong>和<strong>反射</strong>这两种情况。这个时候会为「类成员变量」分配内存。<em>类成员变量不包括方法</em>）<ul>
+<li>遇到 new、getstatic、putstatic、invokestatic 这四条字节码指令时，如果类没有进行过初始化，则需要先触发其初始化。生成这4条指令的最常见的Java代码场景是：使用new关键字实例化对象的时候、读取或设置一个类的静态字段（被final修饰、已在编译器把结果放入常量池的静态字段除外）的时候，以及调用一个类的静态方法的时候。</li>
+<li>使用 java.lang.reflect 包的方法对类进行反射调用的时候，如果类没有进行过初始化，则需要先触发其初始化。</li>
+<li>当初始化一个类的时候，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。</li>
+<li>当虚拟机启动时，用户需要指定一个要执行的主类（包含main()方法的那个类），虚拟机会先初始化这个主类。</li>
+<li>当使用 JDK1.7 动态语言支持时，如果一个 java.lang.invoke.MethodHandle实例最后的解析结果 REF_getstatic,REF_putstatic,REF_invokeStatic 的方法句柄，并且这个方法句柄所对应的类没有进行初始化，则需要先出触发其初始化。</li>
+</ul>
+</li>
+<li>使用：当 JVM 完成初始化阶段之后，JVM 便开始从入口方法开始执行用户的程序代码</li>
+<li>卸载：当用户程序代码执行完毕后，JVM 便开始销毁创建的 Class 对象，最后负责运行的 JVM 也退出内存。</li>
+</ul>
+<h1 id="8-JVM垃圾回收机制"><a href="#8-JVM垃圾回收机制" class="headerlink" title="8. JVM垃圾回收机制"></a>8. JVM垃圾回收机制</h1><p>我们都在说回收垃圾，那么到底什么是垃圾？</p>
+<p>事实上，如果一个对象不可能再被引用，那么这个对象就是垃圾，应该被回收。</p>
+<br>
+
+<p>那么怎么找到垃圾并回收呢？</p>
+<p>首先我们会想到，用计数的方式来判断。即当一个对象被引用时计数加一，被去除引用时减一。这样，当计数为0时，我们就认为是垃圾。</p>
+<p>这种方法有一个弊端，就是当A 引用了 B，B 引用了 C，C 引用了 A，它们各自的引用计数都为 1。但是它们三个对象却从未被其他对象引用，只有它们自身互相引用。从垃圾的判断思想来看，它们三个确实是不被其他对象引用的，但是此时它们的引用计数却不为零。这就是引用计数法存在的循环引用问题。</p>
+<br>
+
+<p>所以现在Java虚拟机使用的是<strong>GC Root Tracing 算法</strong>。其大概的过程是这样：从 GC Root 出发，所有可达的对象都是存活的对象，而所有不可达的对象都是垃圾，最后形成一个<strong>被引用对象集合</strong>。</p>
+<br>
+
+<p>那么拥有了这种算法之后，如何回收垃圾呢？</p>
+<p>这个时候就要用到垃圾回收算法了，主要有三种：</p>
+<ul>
+<li>标记清除算法（缺点：产生空间碎片）<ul>
+<li>标记阶段<ul>
+<li>标记所有被引用的对象，此时所有未被引用的对象就是垃圾对象</li>
+</ul>
+</li>
+<li>清除阶段<ul>
+<li>清除所有未被标记的对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>复制算法（缺点：内存空间折半）<ul>
+<li>将内存分为两块，每次只用一块内存，垃圾回收时，将正在使用的内存中的存活对象复制到未使用的内存块中。然后清除正在使用的内存中的所有对象，之后交换内存块的角色（注意：是交换角色，不是交换两块内存里面的对象！）</li>
+</ul>
+</li>
+<li>标记压缩算法：标记清除算法的优化版<ul>
+<li>标记结算<ul>
+<li>从 GC Root 引用集合触发去标记所有对象</li>
+</ul>
+</li>
+<li>压缩阶段<ul>
+<li>将所有存活的对象压缩在内存的一边，之后清理边界外的所有空间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<p>三者比较：</p>
+<p>标记清除算法：会产生内存碎片，但是不需要移动太多对象，比较<strong>适合在存活对象比较多的情况</strong>。</p>
+<p>复制算法：虽然需要将内存空间折半，并且需要移动存活对象，但是其清理后不会有空间碎片，比较适合存活对象比较少的情况。</p>
+<p>标记压缩算法：标记清除算法的优化版，减少了空间碎片。</p>
+<br>
+
+<p>综上所述：每种算法都有自己的优缺点，最好的方法当然是分情况灵活使用它们。而其实JVM虚拟机正是如此。因此，出现了分代算法。</p>
+<p>所谓分代算法，就是根据 JVM 内存的不同内存区域，采用不同的垃圾回收算法。</p>
+<p>（举个例子：老年代中对象的存活率几乎可以是100%，这个时候如果使用复制算法，工作量巨大！而对于新生代来说，很多对象都是没有被引用的垃圾，所以适合使用复制算法。因此，像前面说到的，新生代是有分区的，即Eden 区域、from 区域、to 区域，并且比例是8:1:1，那么为什么要这么分呢？实际上前面已经讲过，因为很多对象都是垃圾，所以复制之后的对象其实很少，所以我们先在Eden 区域、from 区域使用GC算法，并将存活对象复制到to区域，然后删除Eden 区域、from 区域的所有对象，最后，交换from和to区域的角色并等待下一次GC）</p>
+<br>
+
+<p>实际上，除了分代的概念，还有分区思想。即将整个堆空间划分成连续的不同小区间，每一个小区间都独立使用，独立回收，这种算法的好处是可以控制一次回收多少个区间，可以较好地控制 GC 时间。</p>
+<h1 id="9-JVM垃圾回收期"><a href="#9-JVM垃圾回收期" class="headerlink" title="9. JVM垃圾回收期"></a>9. JVM垃圾回收期</h1><p>Java 虚拟机的垃圾回收器可以分为四大类别：</p>
+<ul>
+<li><p>串行回收器</p>
+<ul>
+<li><p>特点：单线程，在并发能力较弱的计算机上，性能较好，会触发 Stop-The-World 现象，即其他线程都需要暂停，等待垃圾回收完成。</p>
+</li>
+<li><p>开启命令：</p>
+<ul>
+<li><code>-XX:UseSerialGC</code>：新生代、老年代都使用串行回收器</li>
+<li><code>-XX:UseParNewGC</code>：新生代使用 ParNew 回收器，老年代使用串行回收器</li>
+<li><code>-XX:UseParallelGC</code>：新生代使用 ParallelGC 回收器，老年代使用串行回收器</li>
+</ul>
+</li>
+<li><p>分类：</p>
+<ul>
+<li><p>新生代串行回收器</p>
+<ul>
+<li><p>特点：最古老的一种、 JDK 中最基本的垃圾回收器之一</p>
+</li>
+<li><p>算法：复制算法</p>
+</li>
+</ul>
+</li>
+<li><p>老年代串行回收器</p>
+<ul>
+<li><p>特点：</p>
+</li>
+<li><p>算法：标记压缩算法</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>并行回收器</p>
+<ul>
+<li>特点：对比串行回收器有所改进，使用多线程进行垃圾回收，对于并行能力强的机器，可以有效缩短垃圾回收所使用的时间，会触发 Stop-The-World 现象，即其他线程都需要暂停，等待垃圾回收完成，但因为是多线程，所以停顿时间要短于串行回收器</li>
+<li>开启命令<ul>
+<li><code>-XX:+UseParNewGC</code>：新生代使用 ParNew 回收器，老年代使用串行回收器。</li>
+<li><code>-XX:UseConcMarkSweepGC</code>：新生代使用 ParNew 回收器，老年代使用 CMS。</li>
+<li><code>-XX:ParallelGCThreads</code>：指定 ParNew 回收器的工作线程数量。</li>
+<li><code>-XX:+UseParallelGC</code>：新生代使用 Parallel 回收器，老年代使用串行回收器。</li>
+<li><code>-XX:+UseParallelOldGC</code>：新生代使用 ParallelGC 回收器，老年代使用 ParallelOldGC 回收器。</li>
+</ul>
+</li>
+<li>分类：<ul>
+<li>新生代 ParNew 回收器<ul>
+<li>特点：只是简单地将串行回收器多线程化，其余一样</li>
+<li>算法：复制算法</li>
+</ul>
+</li>
+<li>新生代 Parallel GC 回收器<ul>
+<li>特点：与新生代 ParNew 回收器类似，不同点是：其注重系统的吞吐量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CMS 回收器</p>
+<ul>
+<li>特点：关注系统停顿时间、多线程并行。</li>
+<li>算法：标记清除算法</li>
+</ul>
+</li>
+<li><p>G1 回收器</p>
+<ul>
+<li><p>特点：是 JDK 1.7 中使用的全新垃圾回收器，依然使用了分代垃圾回收，但<strong>增加了分区算法</strong>，从而使得Eden 区、From 区、Survivor 区和老年代等各块内存不必连续。</p>
+</li>
+<li><p>目的：为了取代CMS回收器</p>
+</li>
+<li><p>开启命令：</p>
+<ul>
+<li><p>打开 G1 收集器，我们可以使用参数：<code>-XX:+UseG1GC</code></p>
+</li>
+<li><p>设置目标最大停顿时间，可以使用参数：<code>-XX:MaxGCPauseMillis</code></p>
+</li>
+<li><p>设置 GC 工作线程数量，可以使用参数：<code>-XX:ParallelGCThreads</code></p>
+</li>
+<li><p>设置堆使用率触发并发标记周期的执行，可以使用参数：<code>-XX:InitiatingHeapOccupancyPercent</code></p>
+</li>
+</ul>
+</li>
+<li><p>工作流程：</p>
+<ul>
+<li>新生代 GC</li>
+<li>并发标记周期</li>
+<li>混合收集</li>
+<li>如果需要，可能进行 FullGC</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="10-垃圾回收的几种类型"><a href="#10-垃圾回收的几种类型" class="headerlink" title="10. 垃圾回收的几种类型"></a>10. 垃圾回收的几种类型</h1><p>Minor GC：从年轻代空间回收内存被称为 Minor GC，有时候也称之为 Young GC。</p>
+<p>Major GC：从老年代空间回收内存被称为 Major GC，有时候也称之为 Old GC。</p>
+<p>Young GC：如上</p>
+<p>Old GC：如上</p>
+<p>Full GC：Full GC 是清理整个堆空间 —— 包括年轻代、老年代和永久代（如果有的话）</p>
+<p>Stop-The-World：是指在进行垃圾回收时因为标记或清理的需要，必须让所有执行任务的线程停止执行任务，从而让垃圾回收线程回收垃圾的时间间隔。</p>
+<h1 id="11-JVM参数之堆栈空间配置"><a href="#11-JVM参数之堆栈空间配置" class="headerlink" title="11. JVM参数之堆栈空间配置"></a>11. JVM参数之堆栈空间配置</h1><ul>
+<li>堆空间：<ul>
+<li>年轻代：java -Xms20m -Xmn10M GCDemo</li>
+<li>Eden区</li>
+</ul>
+</li>
+<li>永久代（JDK1.7叫法，原方法区）</li>
+<li>元空间（JDK1.8叫法，原方法区）</li>
+<li>栈空间</li>
+<li>直接内存</li>
+</ul>
+<br>
+
+<p>堆空间：<code>java -Xms20m -Xmx30m GCDemo</code> 设置 JVM 的初始堆大小为 20M，最大堆空间为 30M</p>
+<p>年轻代：<code>java -Xms20m -Xmn10M GCDemo</code> 设置 JVM 堆初始大小为20M，其中年轻代的大小为 10M，剩下的自然为老年代的，有10M。</p>
+<p>Eden区： <code>java -Xms20m -Xmn10M -XX:SurvivorRatio=2 -XX:+PrintGCDetails GCDemo</code> 我们在前面说过，年轻代分为eden 空间、from 空间、to 空间。这里我们设置堆初始大小为 20M，年轻代大小为 10M，年轻代的 SurvivorRatio 比例为 2，意思是eden/from=eden/to=2。那么最终分配的结果将会是：年轻代 10M，其中 Eden 区 5M、From 区 2.5M、To 区 2.5 M，老年代 10M。</p>
+<p>永久代：<code>java -XX:PermSize10m -XX:MaxPermSize50m -XX:+PrintGCDetails GCDemo</code> 设置永久代初始大小为 10M，最大大小为 50M。</p>
+<p>元空间：<code>java -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=50m -XX:+PrintGCDetails GCDemo</code>设置的是元空间发生 GC 的初始阈值为10M，设置元空间的最大大小为50M。</p>
+<p>栈空间：<code>java -Xss2m GCDemo</code> 设置最大栈空间为 2M</p>
+<p>直接内存：<code>java -XX:MaxDirectMemorySize=50m GCDemo</code> 设置直接内存最大值为 50M，默认为最大堆空间</p>
+<h1 id="12-JVM参数之查看JVM参数"><a href="#12-JVM参数之查看JVM参数" class="headerlink" title="12. JVM参数之查看JVM参数"></a>12. JVM参数之查看JVM参数</h1><p>程序运行时，打印虚拟机接收到的<strong>命令行显式</strong>参数 <code>-XX:+PrintVMOptions</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入命令：</span><br><span class="line">java -XX:+UseSerialGC -XX:+PrintVMOptions Demo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行结果：</span><br><span class="line">VM option <span class="string">&#x27;+UseSerialGC&#x27;</span> </span><br><span class="line">VM option <span class="string">&#x27;+PrintVMOptions&#x27;</span> </span><br><span class="line">Hello, I<span class="string">&#x27;m chenshuyi</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>程序运行时，打印传递给虚拟机的显式和隐式参数 <code>-XX:+PrintCommandLineFlags</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入命令：</span><br><span class="line">java -XX:+UseSerialGC -XX:+PrintCommandLineFlags Demo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运行结果：</span><br><span class="line">-XX:InitialHeapSize=134217728 -XX:MaxHeapSize=2147483648 -XX:+PrintCommandLineFlags -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseSerialGC</span><br><span class="line">Hello, I<span class="string">&#x27;m chenshuyi</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>程序运行时，打印所有系统参数<code>-XX:+PrintFlagsFinal</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入命令：</span><br><span class="line">java  -XX:+UseSerialGC -XX:+PrintFlagsFinal Demo &gt; jvm_flag_final.txt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">运行结果放在了jvm_flag_final.txt 文件，打开后部分内容如下：</span><br><span class="line">...</span><br><span class="line">uintx InitialHeapSize := 134217728 &#123;product&#125;</span><br><span class="line">...</span><br><span class="line">uintx MaxMetaspaceSize = 18446744073709547520 &#123;product&#125;</span><br><span class="line">...</span><br><span class="line">uintx MetaspaceSize = 21807104 &#123;pd product&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="13-JVM参数之追踪类信息"><a href="#13-JVM参数之追踪类信息" class="headerlink" title="13. JVM参数之追踪类信息"></a>13. JVM参数之追踪类信息</h1><p>跟踪类的加载和卸载<code>-verbose:class</code></p>
+<p>输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -verbose:class Demo &gt; class_load_info.txt</span><br></pre></td></tr></table></figure>
+
+<p>打开 class_load_info.txt 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...省略...</span><br><span class="line">[Loaded java.util.ArrayList from /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar]</span><br><span class="line">...省略...</span><br><span class="line">[Loaded java.util.HashMap from /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar]</span><br><span class="line">...省略...	</span><br><span class="line">[Loaded com.chenshuyi.ClassLoadDemo from file:/Users/yurongchan/Yosemite/Code/practice/target/classes/]</span><br><span class="line">...省略...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>跟踪类的加载<code>-XX:+TraceClassLoading</code></p>
+<p>跟踪类的卸载<code>-XX:+TraceClassUnloading</code></p>
+<h1 id="14-JVM参数之GC日志配置"><a href="#14-JVM参数之GC日志配置" class="headerlink" title="14. JVM参数之GC日志配置"></a>14. JVM参数之GC日志配置</h1><p> Java 虚拟机的GC（Garbage Collection）日志系统。</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-XX:PrintGC</td>
+<td align="center">打印GC日志</td>
+</tr>
+<tr>
+<td align="center">-XX:+PrintGCDetails</td>
+<td align="center">打印详细的GC日志。还会在退出前打印堆的详细信息。</td>
+</tr>
+<tr>
+<td align="center">-XX:+PrintHeapAtGC</td>
+<td align="center">每次GC前后打印堆信息。</td>
+</tr>
+<tr>
+<td align="center">-XX:+PrintGCTimeStamps</td>
+<td align="center">打印GC发生的时间。</td>
+</tr>
+<tr>
+<td align="center">-XX:+PrintGCApplicationConcurrentTime</td>
+<td align="center">打印应用程序的执行时间</td>
+</tr>
+<tr>
+<td align="center">-XX:+PrintGCApplicationStoppedTime</td>
+<td align="center">打印应用由于GC而产生的停顿时间</td>
+</tr>
+<tr>
+<td align="center">-XX:+PrintReferenceGC</td>
+<td align="center">跟踪软引用、弱引用、虚引用和Finallize队列。</td>
+</tr>
+<tr>
+<td align="center">-XLoggc</td>
+<td align="center">将GC日志以文件形式输出。</td>
+</tr>
+</tbody></table>
+<h1 id="15-JDK性能监控命令"><a href="#15-JDK性能监控命令" class="headerlink" title="15. JDK性能监控命令"></a>15. JDK性能监控命令</h1><p>查看虚拟机进程：jps 命令</p>
+<p>虚拟机统计信息：jstat 命令</p>
+<p>查看虚拟机参数：jinfo 命令</p>
+<p>导出堆到文件：jmap 命令</p>
+<p>堆分析工具：jhat 命令</p>
+<p>查看线程堆栈：jstack 命令</p>
+<p>远程主机信息收集：jstatd 命令</p>
+<p>多功能命令行：jcmd 命令</p>
+<p>性能统计工具：hprof 命令</p>
 
     
 
@@ -343,7 +747,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://zhizhangxuezhang.github.io/2021/10/09/JVMNotes/" title="Java虚拟机" target="_blank">https://zhizhangxuezhang.github.io/2021/10/09/JVMNotes/</a>
+          <a href="https://zhizhangxuezhang.github.io/2021/10/12/JVMSimpleNotes/" title="Java虚拟机【简版】" target="_blank">https://zhizhangxuezhang.github.io/2021/10/12/JVMSimpleNotes/</a>
         </li>
         
         <li>
@@ -433,7 +837,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://zhizhangxuezhang.github.io/2021/10/09/JVMNotes/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://zhizhangxuezhang.github.io/2021/10/12/JVMSimpleNotes/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -448,18 +852,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/10/12/JVMSimpleNotes/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java虚拟机【简版】
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/10/07/GitUseNotes/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git的使用</div>
+    <a href="/2021/10/09/JVMNotes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java虚拟机</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -486,7 +881,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%AD%A6%E4%B9%A0JVM%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">1. 学习JVM的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E4%B8%BB%E8%A6%81%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">2. 主要的虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">3.</span> <span class="toc-text">3. 什么是虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%B0%E6%9C%BA%E5%99%A8%E7%A0%81%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">4. 源代码到机器码的过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%AD%97%E8%8A%82%E7%A0%81%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">5. 字节码文件的结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="toc-number">6.</span> <span class="toc-text">6. Java虚拟机内存结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-JVM%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">7.</span> <span class="toc-text">7. JVM类的加载机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">8.</span> <span class="toc-text">8. JVM垃圾回收机制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%9F"><span class="toc-number">9.</span> <span class="toc-text">9. JVM垃圾回收期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E7%B1%BB%E5%9E%8B"><span class="toc-number">10.</span> <span class="toc-text">10. 垃圾回收的几种类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-JVM%E5%8F%82%E6%95%B0%E4%B9%8B%E5%A0%86%E6%A0%88%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE"><span class="toc-number">11.</span> <span class="toc-text">11. JVM参数之堆栈空间配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-JVM%E5%8F%82%E6%95%B0%E4%B9%8B%E6%9F%A5%E7%9C%8BJVM%E5%8F%82%E6%95%B0"><span class="toc-number">12.</span> <span class="toc-text">12. JVM参数之查看JVM参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-JVM%E5%8F%82%E6%95%B0%E4%B9%8B%E8%BF%BD%E8%B8%AA%E7%B1%BB%E4%BF%A1%E6%81%AF"><span class="toc-number">13.</span> <span class="toc-text">13. JVM参数之追踪类信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-JVM%E5%8F%82%E6%95%B0%E4%B9%8BGC%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="toc-number">14.</span> <span class="toc-text">14. JVM参数之GC日志配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-JDK%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%91%BD%E4%BB%A4"><span class="toc-number">15.</span> <span class="toc-text">15. JDK性能监控命令</span></a></li></ol>
                     </div>
                 </span>
             </div>
